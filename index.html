@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Party Wien · September 2026 — Entscheidungsvorlage</title>
+<title>Party Wien · September 2026</title>
 
 <meta property="og:title" content="Party Wien · September 2026">
-<meta property="og:description" content="40er-Geburtstag · 4 DJs · ~150 Gäste. Location-Recherche & Action Plan. Erstellt von BloppBOT.">
+<meta property="og:description" content="40er-Geburtstag · 4 DJs · ~150 Gäste. Location-Recherche, Entscheidungs-Tool & Action Plan.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#d4af37">
 
@@ -14,463 +14,798 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#0d1117; --panel:#161b22; --panel2:#1c232c;
-  --gold:#d4af37; --gold2:#f2c14e;
-  --green:#2ea043; --red:#f85149; --orange:#fb8500;
-  --text:#e6edf3; --muted:#8b949e; --border:#30363d;
+  --bg:#0a0d12; --bg2:#0d1117; --panel:#12171f; --panel2:#1a212b; --panel3:#212a36;
+  --gold:#d4af37; --gold2:#f2c94c; --gold-dim:rgba(212,175,55,.5);
+  --green:#34c759; --green-dim:#1f7a3a; --red:#f25549; --orange:#fb8500; --lime:#9be15d;
+  --text:#eef2f7; --muted:#9aa6b2; --muted2:#6b7682; --border:#262f3b; --border2:#323d4b;
+  --glow:rgba(212,175,55,.18);
+  --maxw:1120px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{
-  font-family:'Inter',system-ui,sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.5;
-  overflow-x:hidden;
-}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-h1,h2,h3,.display{font-family:'Bebas Neue',sans-serif;letter-spacing:.5px;font-weight:400}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+h1,h2,h3,.display{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.5px;line-height:.95}
+.serif{font-family:'Fraunces',serif}
+a{color:inherit}
+img{display:block;max-width:100%}
 
-/* nav */
-nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(13,17,23,.85);backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
-}
+/* ============ NAV ============ */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,13,18,.72);backdrop-filter:blur(14px) saturate(160%);border-bottom:1px solid var(--border)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.brand{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue';font-size:1.4rem;color:var(--gold)}
-.navlinks{display:flex;gap:22px}
-.navlinks a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;transition:color .2s}
-.navlinks a:hover{color:var(--gold)}
-@media(max-width:720px){.navlinks{display:none}}
+.brand{display:flex;align-items:center;gap:9px;font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold);letter-spacing:1px}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.navlinks{display:flex;gap:6px}
+.navlinks a{color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:7px 12px;border-radius:8px;transition:.2s}
+.navlinks a:hover{color:var(--text);background:var(--panel2)}
+.navlinks a.active{color:var(--gold);background:rgba(212,175,55,.1)}
+@media(max-width:860px){.navlinks{display:none}}
 
-/* hero */
-.hero{
-  padding:80px 0 60px;border-bottom:1px solid var(--border);
-  background:
-    radial-gradient(900px 400px at 80% -10%, rgba(212,175,55,.12), transparent),
-    linear-gradient(180deg, var(--panel) 0%, var(--bg) 100%);
-}
-.kicker{color:var(--gold);font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase}
-.hero h1{font-size:clamp(3rem,9vw,6.5rem);line-height:.92;margin:10px 0 6px;color:var(--gold)}
-.hero .sub{font-size:clamp(1.1rem,3vw,1.6rem);color:var(--text);font-weight:600;margin-bottom:34px}
-.specgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:720px}
-@media(max-width:640px){.specgrid{grid-template-columns:repeat(2,1fr)}}
-.spec{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
-.spec .l{color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.spec .v{font-size:.95rem;font-weight:600;margin-top:4px}
+/* ============ HERO ============ */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg:before{content:"";position:absolute;inset:0;background:
+  radial-gradient(1200px 700px at 78% -5%, var(--glow), transparent 60%),
+  radial-gradient(900px 600px at 8% 110%, rgba(212,175,55,.08), transparent 55%),
+  linear-gradient(180deg,#0c1119 0%, var(--bg) 70%)}
+.hero-bg:after{content:"";position:absolute;inset:0;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+.hero-glowline{position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.6}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:40px;padding-bottom:40px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:800;font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px;padding:6px 14px;border:1px solid var(--gold-dim);border-radius:999px;background:rgba(212,175,55,.06)}
+.eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--gold-dim)}50%{opacity:.5;box-shadow:0 0 0 6px transparent}}
+.hero h1{font-size:clamp(3.6rem,12vw,9rem);background:linear-gradient(180deg,#fff 30%,var(--gold) 130%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px}
+.hero .lede{font-family:'Fraunces',serif;font-size:clamp(1.2rem,3.2vw,2rem);font-weight:500;color:var(--text);margin-bottom:8px}
+.hero .sub{color:var(--muted);max-width:540px;font-size:1.02rem;margin-bottom:34px}
+.specgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:740px}
+@media(max-width:620px){.specgrid{grid-template-columns:repeat(2,1fr)}}
+.spec{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--border2);border-radius:14px;padding:15px 16px;position:relative;overflow:hidden}
+.spec:before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
+.spec .l{color:var(--gold);font-size:.66rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.spec .v{font-size:1rem;font-weight:700;margin-top:5px;line-height:1.25}
+.spec .v small{display:block;color:var(--muted);font-weight:500;font-size:.78rem}
+.scrollcue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted2);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;animation:float 2.4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+.scrollcue .line{width:1px;height:30px;background:linear-gradient(var(--gold),transparent)}
 
-/* section */
-section{padding:54px 0;border-bottom:1px solid var(--border)}
-.eyebrow{color:var(--gold);font-weight:700;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
-section h2{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:8px}
-.lead{color:var(--muted);max-width:740px;margin-bottom:28px}
-.lead b{color:var(--text)}
+/* ============ SECTIONS ============ */
+section{padding:74px 0;border-bottom:1px solid var(--border);position:relative}
+.sec-eyebrow{color:var(--gold);font-weight:800;font-size:.72rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sec-eyebrow:before{content:"";width:26px;height:2px;background:var(--gold)}
+h2.sec-title{font-size:clamp(2.2rem,5.5vw,3.4rem);margin-bottom:12px;letter-spacing:1px}
+.lead{color:var(--muted);max-width:760px;margin-bottom:36px;font-size:1.04rem}
+.lead b{color:var(--text);font-weight:600}
 
-/* must criteria */
-.musts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.must{background:rgba(212,175,55,.08);border:1px solid var(--gold);color:var(--gold2);
-  border-radius:999px;padding:7px 14px;font-size:.82rem;font-weight:600}
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
 
-/* scenarios */
+/* ============ DECISION HELPER ============ */
+.decwrap{display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:start}
+@media(max-width:880px){.decwrap{grid-template-columns:1fr}}
+.qcard{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--border2);border-radius:18px;padding:24px}
+.qcard h3{font-size:1.5rem;color:var(--gold);letter-spacing:.6px;margin-bottom:4px}
+.qcard .qsub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.q{margin-bottom:20px}
+.q .qt{font-weight:700;font-size:.97rem;margin-bottom:10px;display:flex;gap:9px;align-items:center}
+.q .qt .num{flex:none;width:22px;height:22px;border-radius:50%;background:rgba(212,175,55,.14);color:var(--gold);font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:'Inter'}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{cursor:pointer;border:1px solid var(--border2);background:var(--bg2);border-radius:11px;padding:12px 14px;font-size:.86rem;font-weight:600;color:var(--muted);transition:.18s;text-align:center;user-select:none}
+.opt:hover{border-color:var(--gold-dim);color:var(--text)}
+.opt.sel{border-color:var(--gold);background:rgba(212,175,55,.12);color:var(--gold2);box-shadow:0 0 0 1px var(--gold) inset}
+.opt small{display:block;font-weight:500;font-size:.72rem;opacity:.8;margin-top:2px}
+
+.result{background:radial-gradient(600px 300px at 80% -20%,var(--glow),transparent),linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--gold-dim);border-radius:18px;padding:26px;position:sticky;top:80px}
+.result .rlabel{color:var(--muted);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:800;margin-bottom:8px}
+.result .rwinner{font-family:'Bebas Neue';font-size:3rem;color:var(--gold);line-height:1;margin-bottom:6px;letter-spacing:1px}
+.result .rwhy{color:var(--text);font-size:.94rem;margin-bottom:20px;min-height:48px}
+.rranks{display:flex;flex-direction:column;gap:12px}
+.rrank{display:flex;align-items:center;gap:12px}
+.rrank .nm{width:92px;flex:none;font-weight:700;font-size:.86rem}
+.rrank .barwrap{flex:1;height:9px;background:var(--bg2);border-radius:999px;overflow:hidden;border:1px solid var(--border)}
+.rrank .bar{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold-dim),var(--gold));width:0;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.rrank.top .bar{background:linear-gradient(90deg,var(--green-dim),var(--green))}
+.rrank .pct{width:42px;flex:none;text-align:right;font-weight:800;font-size:.84rem;color:var(--muted)}
+.rrank.top .pct{color:var(--green)}
+
+/* decision tree */
+.tree{margin-top:46px}
+.tree h3{font-size:1.6rem;color:var(--gold);margin-bottom:20px;letter-spacing:.6px}
+.flow{display:flex;flex-direction:column;gap:0}
+.frow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.fnode{background:var(--panel2);border:1px solid var(--border2);border-radius:12px;padding:13px 17px;font-size:.88rem;font-weight:600;position:relative}
+.fnode.q{border-color:var(--gold-dim);color:var(--gold2)}
+.fbranch{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+@media(max-width:680px){.fbranch{grid-template-columns:1fr}}
+.fcol{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:16px}
+.fcol .lab{font-size:.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.fcol.yes .lab{color:var(--green)} .fcol.no .lab{color:var(--orange)}
+.fcol .step{font-size:.84rem;color:var(--muted);padding:7px 0;border-bottom:1px dashed var(--border);display:flex;gap:8px}
+.fcol .step:last-child{border-bottom:none}
+.fcol .step b{color:var(--text)}
+.fcol .step .arrow{color:var(--gold)}
+
+/* ============ BUDGET ============ */
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}
+@media(max-width:680px){.kpi-row{grid-template-columns:1fr}}
+.kpi{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--border2);border-radius:16px;padding:22px}
+.kpi .big{font-family:'Bebas Neue';font-size:3rem;color:var(--gold);line-height:1}
+.kpi .cap{color:var(--muted);font-size:.86rem;margin-top:4px}
+.budgetbars{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:26px 26px 30px;margin-bottom:24px}
+.bbar{margin-bottom:30px}
+.bbar:last-child{margin-bottom:0}
+.bbar .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.bbar .top .name{font-weight:700}
+.bbar .top .name small{color:var(--muted);font-weight:500;margin-left:8px;font-size:.8rem}
+.bbar .top .amt{font-weight:800;font-family:'Bebas Neue';font-size:1.4rem}
+.track{position:relative;height:30px;background:var(--bg2);border-radius:8px;border:1px solid var(--border);overflow:visible}
+.track .fillclip{position:absolute;inset:0;border-radius:8px;overflow:hidden}
+.fill{height:100%;border-radius:7px 0 0 7px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:.74rem;font-weight:700;color:#0a0d12;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.fill.a{background:linear-gradient(90deg,var(--green-dim),var(--green))}
+.fill.b{background:linear-gradient(90deg,#8a3a14,var(--orange))}
+.budgetline{position:absolute;top:-7px;bottom:-7px;width:2px;background:var(--gold);z-index:3}
+.budgetline span{position:absolute;top:-20px;left:50%;transform:translateX(-50%);white-space:nowrap;color:var(--gold);font-size:.7rem;font-weight:800;letter-spacing:.5px}
 .cols2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:720px){.cols2{grid-template-columns:1fr}}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px}
-.card.good{border-color:var(--green)}
-.card.bad{border-color:var(--red)}
-.card h3{font-size:1.4rem;color:var(--gold);margin-bottom:4px}
-.card .note{color:var(--muted);font-size:.88rem;margin-bottom:14px}
+@media(max-width:760px){.cols2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px}
+.card.good{border-color:rgba(52,199,89,.4)}
+.card.bad{border-color:rgba(242,85,73,.35)}
+.card h3{font-size:1.45rem;color:var(--gold);margin-bottom:4px}
+.card .note{color:var(--muted);font-size:.86rem;margin-bottom:14px}
 .card ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:.9rem}
 .card li{padding-left:18px;position:relative}
-.card li:before{content:"·";position:absolute;left:4px;color:var(--gold)}
-.tot{margin-top:14px;font-weight:800;font-size:1.05rem}
+.card li:before{content:"·";position:absolute;left:4px;color:var(--gold);font-weight:800}
+.tot{margin-top:16px;font-weight:800;font-size:1.05rem;padding-top:12px;border-top:1px solid var(--border)}
 .tot.ok{color:var(--green)} .tot.warn{color:var(--red)}
-
-.callout{background:var(--panel2);border:1px solid var(--gold);border-radius:14px;padding:22px;margin-top:24px}
-.callout .l{color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.callout{background:linear-gradient(135deg,rgba(212,175,55,.1),var(--panel2));border:1px solid var(--gold-dim);border-radius:16px;padding:24px;margin-top:24px}
+.callout .l{color:var(--gold);font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
 .callout b{color:var(--gold2)}
 
-/* venues */
-.venue{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:26px;margin-bottom:22px;position:relative;overflow:hidden}
-.venue.v1{border-color:var(--green)}
-.venue .vhead{display:flex;align-items:baseline;gap:16px;margin-bottom:4px}
-.venue .rank{font-family:'Bebas Neue';font-size:3.4rem;line-height:1;color:var(--gold)}
-.venue .vname{font-size:2rem}
-.venue .vtag{color:var(--gold2);font-size:.9rem;font-weight:600;margin-bottom:18px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
-@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center}
-.stat .n{font-family:'Bebas Neue';font-size:1.5rem;color:var(--gold)}
-.stat .ll{color:var(--muted);font-size:.65rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:2px}
-.vbody{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:720px){.vbody{grid-template-columns:1fr}}
-.vbody .lbl{color:var(--gold);font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:14px 0 4px}
-.vbody .lbl:first-child{margin-top:0}
-.vbody p,.vbody li{font-size:.88rem}
-.vbody a{color:var(--gold2)}
-.plist{list-style:none;display:flex;flex-direction:column;gap:5px}
-.plist li{padding-left:18px;position:relative}
+/* ============ VENUES ============ */
+.venue{background:var(--panel);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:30px;transition:.3s}
+.venue:hover{border-color:var(--border2)}
+.venue.v1{border-color:rgba(52,199,89,.45);box-shadow:0 0 40px rgba(52,199,89,.06)}
+.vhero{position:relative;height:340px;overflow:hidden}
+@media(max-width:620px){.vhero{height:230px}}
+.vhero img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.venue:hover .vhero img{transform:scale(1.05)}
+.vhero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,13,18,.1) 0%,rgba(10,13,18,.35) 45%,rgba(10,13,18,.96) 100%)}
+.vhero .badge{position:absolute;top:18px;left:18px;display:flex;align-items:center;gap:10px}
+.vhero .rank{font-family:'Bebas Neue';font-size:1.5rem;width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(10,13,18,.7);backdrop-filter:blur(6px);border:1px solid var(--gold);color:var(--gold)}
+.venue.v1 .rank{border-color:var(--green);color:var(--green)}
+.vhero .pick{font-size:.66rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:5px 11px;border-radius:999px;backdrop-filter:blur(6px)}
+.pick.top{background:rgba(52,199,89,.2);border:1px solid var(--green);color:var(--green)}
+.pick.safe{background:rgba(212,175,55,.18);border:1px solid var(--gold);color:var(--gold2)}
+.pick.wow{background:rgba(242,85,73,.16);border:1px solid var(--red);color:#ff8b80}
+.vhero .vtitle{position:absolute;bottom:18px;left:22px;right:22px}
+.vhero .vname{font-family:'Bebas Neue';font-size:3.2rem;line-height:.9;letter-spacing:1px}
+@media(max-width:620px){.vhero .vname{font-size:2.2rem}}
+.vhero .vtag{color:var(--gold2);font-weight:600;font-size:.9rem;margin-top:4px}
+.vbodywrap{padding:24px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+@media(max-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:13px 12px;text-align:center}
+.stat .ic{color:var(--gold);margin-bottom:5px;display:flex;justify-content:center}
+.stat .ic svg{width:18px;height:18px}
+.stat .n{font-family:'Bebas Neue';font-size:1.35rem;color:var(--text);line-height:1}
+.stat .ll{color:var(--muted);font-size:.62rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:3px}
+.gallery{display:flex;gap:8px;margin-bottom:22px}
+.gallery img{flex:1;min-width:0;height:88px;object-fit:cover;border-radius:9px;border:1px solid var(--border);cursor:zoom-in;transition:.2s}
+.gallery img:hover{border-color:var(--gold);opacity:.9}
+.vcols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:760px){.vcols{grid-template-columns:1fr}}
+.vlabel{color:var(--gold);font-size:.66rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin:16px 0 6px}
+.vlabel:first-child{margin-top:0}
+.vcols p,.vcols li{font-size:.88rem}
+.vcols a{color:var(--gold2)}
+.scorebars{display:flex;flex-direction:column;gap:9px}
+.sb{display:flex;align-items:center;gap:10px}
+.sb .sbl{width:108px;flex:none;font-size:.78rem;color:var(--muted)}
+.sb .sbt{flex:1;height:7px;background:var(--bg2);border-radius:999px;overflow:hidden;border:1px solid var(--border)}
+.sb .sbf{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold-dim),var(--gold))}
+.sb .sbf.hi{background:linear-gradient(90deg,var(--green-dim),var(--green))}
+.sb .sbf.lo{background:linear-gradient(90deg,#8a3a14,var(--orange))}
+.plist{list-style:none;display:flex;flex-direction:column;gap:6px}
+.plist li{padding-left:20px;position:relative}
 .plist.pro li:before{content:"+";position:absolute;left:2px;color:var(--green);font-weight:800}
 .plist.con li:before{content:"–";position:absolute;left:2px;color:var(--red);font-weight:800}
-.verdict{margin-top:20px;background:var(--panel2);border-left:3px solid var(--gold);border-radius:8px;padding:16px}
+.maprow{margin-top:20px;border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+.maprow iframe{width:100%;height:220px;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.7) brightness(.95);display:block}
+.verdict{margin:20px 0 0;background:var(--panel2);border-left:3px solid var(--gold);border-radius:10px;padding:18px}
 .venue.v1 .verdict{border-left-color:var(--green)}
-.verdict .l{color:var(--gold);font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.verdict p{font-size:.9rem}
+.verdict .l{color:var(--gold);font-size:.68rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.venue.v1 .verdict .l{color:var(--green)}
+.verdict p{font-size:.92rem}
+.callbtn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--gold);color:#0a0d12;font-weight:800;font-size:.85rem;padding:11px 18px;border-radius:10px;text-decoration:none;transition:.2s}
+.callbtn:hover{background:var(--gold2);transform:translateY(-1px)}
+.callbtn.ghost{background:transparent;border:1px solid var(--border2);color:var(--text);margin-left:8px}
+.callbtn.ghost:hover{border-color:var(--gold);color:var(--gold)}
 
-/* tables */
-.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px}
-table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:560px}
-th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--border)}
-th{background:var(--panel2);color:var(--gold);font-size:.7rem;letter-spacing:.5px;text-transform:uppercase}
+/* ============ TABLES ============ */
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:16px}
+table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:620px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border)}
+th{background:var(--panel2);color:var(--gold);font-size:.68rem;letter-spacing:.6px;text-transform:uppercase;font-weight:800}
 td{background:var(--panel)}
 tr:last-child td{border-bottom:none}
-.sub{color:var(--muted);font-size:.78rem}
-.sc{text-align:center;font-weight:800}
-.s5{color:var(--green)}.s4{color:#94d82d}.s3{color:var(--gold)}.s2{color:var(--orange)}.s1{color:var(--red)}
-.top3 td:first-child{color:var(--gold);font-weight:700}
-.stars{color:var(--gold)}.stars .o{color:#444c56}
+.subt{color:var(--muted);font-size:.77rem;margin-top:2px}
+.heat{text-align:center;font-weight:800;color:#0a0d12;border-radius:6px}
+.h5{background:var(--green)}.h4{background:var(--lime);color:#0a0d12}.h3{background:var(--gold)}.h2{background:var(--orange)}.h1{background:var(--red);color:#fff}
+.matrow.top td:first-child{color:var(--gold);font-weight:800}
+.stars{color:var(--gold);letter-spacing:1px}.stars .o{color:#3a4350}
 
 /* date pills */
-.dates{display:flex;flex-direction:column;gap:12px}
-.drow{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px}
+.dates{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.drow{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:16px 18px}
+.drow.rec{border-color:rgba(52,199,89,.4);background:linear-gradient(90deg,rgba(52,199,89,.06),var(--panel))}
 .drow .d{font-weight:800;min-width:150px}
 .drow .why{color:var(--muted);font-size:.86rem;flex:1}
-.badge{font-weight:800;font-size:.75rem;letter-spacing:.5px;padding:5px 12px;border-radius:999px}
-.badge.rec{background:rgba(46,160,67,.15);color:var(--green);border:1px solid var(--green)}
-.badge.ok{background:rgba(212,175,55,.12);color:var(--gold);border:1px solid var(--gold)}
-.badge.risk{background:rgba(248,81,73,.12);color:var(--red);border:1px solid var(--red)}
-@media(max-width:640px){.drow{flex-wrap:wrap}.drow .d{min-width:100%}}
+.pill{font-weight:800;font-size:.72rem;letter-spacing:.5px;padding:6px 13px;border-radius:999px;white-space:nowrap}
+.pill.rec{background:rgba(52,199,89,.16);color:var(--green);border:1px solid var(--green)}
+.pill.ok{background:rgba(212,175,55,.12);color:var(--gold);border:1px solid var(--gold-dim)}
+.pill.risk{background:rgba(242,85,73,.12);color:var(--red);border:1px solid var(--red)}
+@media(max-width:600px){.drow{flex-wrap:wrap}.drow .d{min-width:100%}}
 
-/* action */
-.qlist{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-.qlist li{list-style:none;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:12px 16px;font-size:.9rem}
+/* ============ TIMELINE ============ */
+.timeline{position:relative;margin-top:10px;padding-left:8px}
+.timeline:before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--gold-dim),transparent)}
+.tl{position:relative;padding:0 0 26px 30px}
+.tl:last-child{padding-bottom:0}
+.tl:before{content:"";position:absolute;left:1px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.12)}
+.tl .when{font-family:'Bebas Neue';font-size:1.25rem;color:var(--gold);letter-spacing:.5px}
+.tl .what{font-size:.92rem;color:var(--muted);margin-top:2px}
+.tl .what b{color:var(--text)}
+
+.qlist{display:flex;flex-direction:column;gap:9px;margin-top:8px}
+.qlist li{list-style:none;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:.9rem;border-left:3px solid var(--gold-dim)}
 .qlist b{color:var(--gold)}
-.steps{margin-top:20px}
-.steps .step{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border)}
-.steps .step:last-child{border-bottom:none}
-.steps .when{color:var(--gold);font-weight:700;min-width:130px;font-size:.85rem}
-.steps .what{font-size:.9rem;color:var(--text)}
+
+.excl{background:linear-gradient(135deg,rgba(242,85,73,.08),var(--panel2));border:1px solid rgba(242,85,73,.3);border-radius:16px;padding:22px;margin-top:24px}
+.excl .l{color:var(--red);font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.excl p{font-size:.88rem;color:var(--muted)}
+.excl b{color:var(--text)}
 
 /* footer */
-footer{padding:40px 0;text-align:center;color:var(--muted);font-size:.85rem}
+footer{padding:50px 0 60px;text-align:center;color:var(--muted2);font-size:.84rem}
+footer .fbrand{font-family:'Bebas Neue';font-size:1.6rem;color:var(--gold);letter-spacing:1px;margin-bottom:10px}
 footer a{color:var(--gold2);text-decoration:none}
-.disclaim{margin-top:8px;font-size:.78rem;color:var(--muted);max-width:640px;margin-left:auto;margin-right:auto}
+.credits{margin-top:18px;font-size:.72rem;color:var(--muted2);max-width:680px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(5,7,10,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-width:92%;max-height:90%;border-radius:10px;border:1px solid var(--border2)}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <div class="brand">🎉 Party 2026</div>
+    <div class="brand"><span class="dot"></span> PARTY '26</div>
     <div class="navlinks">
+      <a href="#decision">Entscheidung</a>
       <a href="#budget">Budget</a>
       <a href="#venues">Locations</a>
-      <a href="#backup">Backups</a>
       <a href="#matrix">Matrix</a>
       <a href="#action">Action Plan</a>
     </div>
   </div>
 </nav>
 
-<header class="hero">
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-glowline"></div>
   <div class="wrap">
-    <div class="kicker">Entscheidungsvorlage</div>
-    <h1>Party in Wien.</h1>
-    <div class="sub">40er-Geburtstag · 4 DJs · September 2026</div>
+    <span class="eyebrow"><span class="pulse"></span> Entscheidungsvorlage · Wien</span>
+    <h1>PARTY IN WIEN</h1>
+    <div class="lede serif">Ein 40er. Vier DJs. Eine Nacht bis in die Früh.</div>
+    <p class="sub">Recherche, Budget-Logik und ein interaktives Entscheidungs-Tool für die richtige Location im September 2026. Erste Zusage = nehmen.</p>
     <div class="specgrid">
-      <div class="spec"><div class="l">Anlass</div><div class="v">40er · 4 Personen</div></div>
-      <div class="spec"><div class="l">Gäste</div><div class="v">~150 Pax · Stehparty</div></div>
-      <div class="spec"><div class="l">Datum</div><div class="v">Sa 5./12./19. Sept.</div></div>
-      <div class="spec"><div class="l">Budget</div><div class="v">€4.000 all-in</div></div>
-    </div>
-    <div class="musts">
-      <span class="must">Outdoor + Indoor</span>
-      <span class="must">Bis in die Früh (04–06 Uhr)</span>
-      <span class="must">DJ-tauglicher Sound · 4 Slots</span>
-      <span class="must">Nicht snobby</span>
-      <span class="must">Catering möglich</span>
+      <div class="spec"><div class="l">Anlass</div><div class="v">40er<small>4 Geburtstagskinder</small></div></div>
+      <div class="spec"><div class="l">Gäste</div><div class="v">~150<small>Stehparty</small></div></div>
+      <div class="spec"><div class="l">Datum</div><div class="v">September<small>Sa 5. / 12. / 19.</small></div></div>
+      <div class="spec"><div class="l">Budget</div><div class="v">€4.000<small>all-in</small></div></div>
     </div>
   </div>
+  <div class="scrollcue">Scroll<div class="line"></div></div>
 </header>
 
-<!-- BUDGET -->
+<!-- ============ DECISION ============ -->
+<section id="decision">
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Entscheidungs-Tool</div>
+    <h2 class="sec-title reveal">Welche Location passt?</h2>
+    <p class="lead reveal">Drei Fragen — die Empfehlung rechnet sich live. Es gibt keine perfekte Location, nur die, die zu <b>euren</b> Prioritäten passt. Klickt euch durch.</p>
+
+    <div class="decwrap">
+      <div class="qcard reveal">
+        <h3>Eure Prioritäten</h3>
+        <div class="qsub">Wählt pro Frage eine Option.</div>
+
+        <div class="q" data-q="hours">
+          <div class="qt"><span class="num">1</span> Muss die Party über 04:00 hinaus gehen?</div>
+          <div class="opts">
+            <div class="opt" data-v="must06">Ja, bis ~06:00<small>Dawn-Hours Pflicht</small></div>
+            <div class="opt" data-v="ok04">Nein, 04:00 reicht<small>flexibel</small></div>
+          </div>
+        </div>
+
+        <div class="q" data-q="budget">
+          <div class="qt"><span class="num">2</span> Wie hart ist das €4.000-Budget?</div>
+          <div class="opts">
+            <div class="opt" data-v="hard">Hart<small>darf nicht reißen</small></div>
+            <div class="opt" data-v="flex">Flexibel<small>Wow ist es wert</small></div>
+          </div>
+        </div>
+
+        <div class="q" data-q="vibe">
+          <div class="qt"><span class="num">3</span> Was zählt mehr?</div>
+          <div class="opts">
+            <div class="opt" data-v="wow">Wow-Faktor<small>Garten · Pool · Effekt</small></div>
+            <div class="opt" data-v="safe">Sicherheit<small>fixer Preis · planbar</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result reveal">
+        <div class="rlabel">Empfehlung</div>
+        <div class="rwinner" id="rwinner">WERK</div>
+        <div class="rwhy" id="rwhy">Bester Allrounder: Lizenz bis 06:00, Club-Sound, im Budget. Beantworte links die Fragen für eine maßgeschneiderte Empfehlung.</div>
+        <div class="rranks" id="rranks">
+          <div class="rrank top" data-k="werk"><div class="nm">WERK</div><div class="barwrap"><div class="bar"></div></div><div class="pct">0%</div></div>
+          <div class="rrank" data-k="praters"><div class="nm">Pratersauna</div><div class="barwrap"><div class="bar"></div></div><div class="pct">0%</div></div>
+          <div class="rrank" data-k="bade"><div class="nm">Badeschiff</div><div class="barwrap"><div class="bar"></div></div><div class="pct">0%</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- decision tree -->
+    <div class="tree reveal">
+      <h3>Die Logik dahinter</h3>
+      <div class="flow">
+        <div class="frow"><div class="fnode q">Startfrage: Muss bis ~06:00 gespielt werden?</div></div>
+        <div class="fbranch">
+          <div class="fcol yes">
+            <div class="lab">Ja → Dawn-Hours Pflicht</div>
+            <div class="step"><span class="arrow">→</span><span>Badeschiff fällt raus <b>(Sperrstunde 04:00)</b></span></div>
+            <div class="step"><span class="arrow">→</span><span>Budget hart? <b>→ WERK</b> (Lizenz 06:00, günstig)</span></div>
+            <div class="step"><span class="arrow">→</span><span>Budget flex + Wow? <b>→ Pratersauna</b> (Garten + Roof)</span></div>
+          </div>
+          <div class="fcol no">
+            <div class="lab">Nein → 04:00 reicht</div>
+            <div class="step"><span class="arrow">→</span><span>Sicherheit wichtig? <b>→ Badeschiff</b> (fixer Preis €2.760)</span></div>
+            <div class="step"><span class="arrow">→</span><span>Wow gewünscht? <b>→ Pratersauna</b></span></div>
+            <div class="step"><span class="arrow">→</span><span>Im Zweifel <b>→ WERK</b> als Allrounder</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUDGET ============ -->
 <section id="budget">
   <div class="wrap">
-    <div class="eyebrow">Reality Check</div>
-    <h2>Budget &amp; Szenarien</h2>
-    <p class="lead">€4.000 all-in für 150 Personen inkl. Essen = <b>€26,67 pro Kopf</b>. In Wien 2026 ambitioniert. Zwei Pfade — die Top-3-Locations sind so gewählt, dass mindestens <b>Szenario A</b> sicher funktioniert.</p>
-    <div class="cols2">
+    <div class="sec-eyebrow reveal">Reality Check</div>
+    <h2 class="sec-title reveal">Budget &amp; Szenarien</h2>
+    <p class="lead reveal">€4.000 all-in für 150 Personen inkl. Essen = <b>€26,67 pro Kopf</b>. In Wien 2026 ambitioniert — aber mit dem richtigen Modell machbar.</p>
+
+    <div class="kpi-row reveal">
+      <div class="kpi"><div class="big">€26,67</div><div class="cap">pro Kopf, all-in bei 150 Gästen</div></div>
+      <div class="kpi"><div class="big">€0</div><div class="cap">DJ-Kosten — alle 4 spielen selbst (spart ~€400–800)</div></div>
+      <div class="kpi"><div class="big">~€3.760</div><div class="cap">realistisches Ergebnis bei Szenario A</div></div>
+    </div>
+
+    <div class="budgetbars reveal">
+      <div class="bbar">
+        <div class="top"><div class="name">Szenario A <small>Miete + externes Catering, Drinks an Hausbar</small></div><div class="amt" style="color:var(--green)">€3–5k</div></div>
+        <div class="track"><div class="fillclip"><div class="fill a" data-w="80%">empfohlen</div></div><div class="budgetline" style="left:80%"><span>€4.000 Budget</span></div></div>
+      </div>
+      <div class="bbar">
+        <div class="top"><div class="name">Szenario B <small>Komplett-Paket vom Haus inkl. Catering</small></div><div class="amt" style="color:var(--orange)">€6–10,5k</div></div>
+        <div class="track"><div class="fillclip"><div class="fill b" data-w="100%">Budget gesprengt</div></div><div class="budgetline" style="left:40%"><span>€4.000</span></div></div>
+      </div>
+    </div>
+
+    <div class="cols2 reveal">
       <div class="card good">
         <h3>Szenario A — empfohlen</h3>
-        <div class="note">Location-Miete + selbst-organisiertes Catering. Drinks zahlen die Gäste an der Hausbar.</div>
+        <div class="note">Location-Miete + selbst organisiertes Catering. Drinks zahlen die Gäste an der Hausbar.</div>
         <ul>
           <li>Location-Miete: <b>€1.500 – 2.500</b></li>
           <li>Fingerfood / BBQ extern: <b>€1.300 – 2.000</b> (€9–13/Kopf)</li>
           <li>Reserve / Deko / GEMA: <b>€200 – 500</b></li>
         </ul>
         <div class="tot ok">= €3.000 – 5.000 gesamt</div>
-        <div class="note" style="margin-top:8px;margin-bottom:0">Drinks: Gäste an Hausbar — Standard in Wien-Clubs/Heurigen.</div>
       </div>
       <div class="card bad">
         <h3>Szenario B — riskant</h3>
-        <div class="note">Komplett-Paket vom Haus mit Catering inkludiert. Bequem, aber selten unter €6k bei 150 Pax.</div>
+        <div class="note">Bequem, aber selten unter €6k bei 150 Pax. Nur sinnvoll, wenn Budget flexibel ist oder Gästezahl auf ~100 sinkt.</div>
         <ul>
           <li>Haus-Paket (Miete + Fingerfood): <b>€40 – 70/Kopf</b></li>
           <li>× 150 Pax = <b>€6.000 – 10.500</b></li>
         </ul>
         <div class="tot warn">= Budget gesprengt um €2k – 6k</div>
-        <div class="note" style="margin-top:8px;margin-bottom:0">Nur sinnvoll wenn Budget flexibel oder Gästezahl auf ~100 sinkt.</div>
       </div>
     </div>
-    <div class="callout">
-      <div class="l">Empfehlung in einem Satz</div>
-      <p>Geht mit <b>Szenario A</b> und priorisiert <b>WERK</b> (beste Lizenz + Sound + günstig) vor <b>Pratersauna</b> (Wow-Faktor mit Garten + Roof) vor <b>Badeschiff</b> (transparenter Preis, sicherste Buchung, aber nur bis 04:00). Ruft am Montag in dieser Reihenfolge an.</p>
-    </div>
-    <div class="callout" style="border-color:var(--border)">
-      <div class="l">DJ-Bonus</div>
-      <p>Alle 4 Geburtstagskinder sind DJs → <b>€0 DJ-Kosten</b> (sonst ~€400–800 für 6h Profi). Dafür steigt die Anforderung an die PA. Vorab klären: eigenes Equipment (CDJs, Mixer) oder stellt die Location ein Setup? WERK &amp; Pratersauna haben Pioneer-Standard, Badeschiff nur Bar-PA mit Anschluss.</p>
+
+    <div class="callout reveal">
+      <div class="l">DJ-Setup vorab klären</div>
+      <p>Alle 4 Geburtstagskinder sind DJs → <b>€0 DJ-Kosten</b>. Dafür steigt die Anforderung an die PA. Klärt vorab: bringt ihr eigenes Equipment (CDJs, Mixer) oder stellt die Location ein Setup? <b>WERK</b> &amp; <b>Pratersauna</b> haben Pioneer-Standard, <b>Badeschiff</b> nur Bar-PA mit Anschluss.</p>
     </div>
   </div>
 </section>
 
-<!-- VENUES -->
+<!-- ============ VENUES ============ -->
 <section id="venues">
   <div class="wrap">
-    <div class="eyebrow">Top 3</div>
-    <h2>Die Locations</h2>
-    <p class="lead">In Anruf-Reihenfolge. Erste Zusage = nehmen.</p>
+    <div class="sec-eyebrow reveal">Top 3 · in Anruf-Reihenfolge</div>
+    <h2 class="sec-title reveal">Die Locations</h2>
+    <p class="lead reveal">Echte Fotos, exakte Lage, Bewertung pro Kriterium. Die Reihenfolge ist die empfohlene Anruf-Priorität.</p>
 
     <!-- WERK -->
-    <div class="venue v1">
-      <div class="vhead"><span class="rank">#1</span><span class="vname">WERK</span></div>
-      <div class="vtag">Industrial Kulturverein · Spittelau · 1090</div>
-      <div class="stats">
-        <div class="stat"><div class="n">150+</div><div class="ll">Kapazität</div></div>
-        <div class="stat"><div class="n">06:00</div><div class="ll">Sperrstunde Fr/Sa</div></div>
-        <div class="stat"><div class="n">JA</div><div class="ll">Schanigarten</div></div>
-        <div class="stat"><div class="n">~€1,5–2,5k</div><div class="ll">Miete (geschätzt)</div></div>
+    <div class="venue v1 reveal">
+      <div class="vhero">
+        <img src="images/werk_main.jpg" alt="WERK Innenraum">
+        <div class="overlay"></div>
+        <div class="badge"><span class="rank">#1</span><span class="pick top">Beste Wahl</span></div>
+        <div class="vtitle"><div class="vname">WERK</div><div class="vtag">Industrial Kulturverein · Spittelau · 1090</div></div>
       </div>
-      <div class="vbody">
-        <div>
-          <div class="lbl">Adresse</div><p>Spittelauer Lände 12 / Stadtbahnbogen 331, 1090 Wien</p>
-          <div class="lbl">Kontakt</div><p><a href="mailto:booking@daswerk.org">booking@daswerk.org</a> · info@daswerk.org</p>
-          <div class="lbl">Web</div><p><a href="https://daswerk.org" target="_blank" rel="noopener">daswerk.org</a></p>
-          <div class="lbl">Catering</div><p>Bar im Haus. Catering selbst mitbringen — Fingerfood oder mobiler BBQ-Truck. Korkgeld klären.</p>
-          <div class="lbl">Vibe</div><p>Klassischer Wiener Underground unter den Stadtbahnbögen. Industrial, zwei Floors, echte Club-PA. Null Snob-Faktor.</p>
+      <div class="vbodywrap">
+        <div class="stats">
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div><div class="n">150+</div><div class="ll">Kapazität</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="n">06:00</div><div class="ll">Sperrstunde</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01"/></svg></div><div class="n">JA</div><div class="ll">Schanigarten</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="n">1,5–2,5k</div><div class="ll">Miete gesch.</div></div>
         </div>
-        <div>
-          <div class="lbl">Stärken</div>
-          <ul class="plist pro">
-            <li>Einzige Top-Option mit publizierter 23–06 Uhr Lizenz Fr/Sa</li>
-            <li>Echte Pioneer-Club-PA (DJ-Profis spielen hier regelmäßig)</li>
-            <li>Kulturverein-Preise = günstig</li>
-            <li>Stadtbahnbögen-Vibe passt zu DJ-Geburtstag</li>
-            <li>U4 Spittelau direkt vor der Tür</li>
-          </ul>
-          <div class="lbl">Schwächen / Risiken</div>
-          <ul class="plist con">
-            <li>Outdoor ist ein Streifen entlang der Lände — nicht riesig</li>
-            <li>Samstag ist Haupt-Programmtag — frei zu bekommen ist die Hürde</li>
-            <li>Catering muss extern organisiert werden</li>
-          </ul>
+        <div class="gallery">
+          <img src="images/werk_main.jpg" alt="WERK Floor" loading="lazy">
+          <img src="images/werk_main2.jpg" alt="WERK Floor 2" loading="lazy">
+          <img src="images/werk_bar.jpg" alt="WERK Bar" loading="lazy">
         </div>
-      </div>
-      <div class="verdict">
-        <div class="l">Verdict</div>
-        <p><b>Erste Wahl.</b> Best-Match auf alle harten Kriterien gleichzeitig: Lizenz bis 06:00, DJ-tauglicher Sound, Outdoor vorhanden, im Budget, nicht snobby. Einzige Unsicherheit ist Verfügbarkeit am Samstag — daher zuerst anfragen und auf 5.9. drücken.</p>
+        <div class="vcols">
+          <div>
+            <div class="vlabel">Bewertung</div>
+            <div class="scorebars">
+              <div class="sb"><span class="sbl">Kosten</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+              <div class="sb"><span class="sbl">Sound</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+              <div class="sb"><span class="sbl">Outdoor</span><div class="sbt"><div class="sbf" data-w="60%"></div></div></div>
+              <div class="sb"><span class="sbl">Sperrstunde</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+              <div class="sb"><span class="sbl">Verfügbarkeit</span><div class="sbt"><div class="sbf" data-w="80%"></div></div></div>
+            </div>
+            <div class="vlabel">Vibe</div>
+            <p>Klassischer Wiener Underground unter den Stadtbahnbögen. Industrial, zwei Floors, echte Club-PA. Null Snob-Faktor — genau der Vibe für eine 40er-Party bis in die Früh.</p>
+            <div class="vlabel">Kontakt</div>
+            <p><a href="mailto:booking@daswerk.org">booking@daswerk.org</a><br>Spittelauer Lände 12, 1090 · <a href="https://daswerk.org" target="_blank" rel="noopener">daswerk.org</a></p>
+          </div>
+          <div>
+            <div class="vlabel">Stärken</div>
+            <ul class="plist pro">
+              <li>Einzige Top-Option mit publizierter 23–06 Uhr Lizenz Fr/Sa</li>
+              <li>Echte Pioneer-Club-PA, DJ-Profis spielen hier regelmäßig</li>
+              <li>Kulturverein-Preise = günstig</li>
+              <li>U4 Spittelau direkt vor der Tür</li>
+            </ul>
+            <div class="vlabel">Schwächen / Risiken</div>
+            <ul class="plist con">
+              <li>Outdoor ist ein Streifen entlang der Lände — nicht riesig</li>
+              <li>Samstag ist Haupt-Programmtag — frei zu kriegen ist die Hürde</li>
+              <li>Catering muss extern organisiert werden</li>
+            </ul>
+          </div>
+        </div>
+        <div class="maprow"><iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=16.3568%2C48.2323%2C16.3648%2C48.2373&layer=mapnik&marker=48.2348%2C16.3608"></iframe></div>
+        <div class="verdict">
+          <div class="l">Verdict</div>
+          <p><b>Erste Wahl.</b> Best-Match auf alle harten Kriterien gleichzeitig: Lizenz bis 06:00, DJ-tauglicher Sound, Outdoor vorhanden, im Budget, nicht snobby. Einzige Unsicherheit ist die Verfügbarkeit am Samstag — daher zuerst anfragen und auf den 5.9. drücken.</p>
+        </div>
+        <a class="callbtn" href="mailto:booking@daswerk.org?subject=Anfrage%20Privat-Event%20September%202026&body=Hallo%2C%20wir%20m%C3%B6chten%20eine%20Geburtstagsparty%20(ca.%20150%20G%C3%A4ste%2C%204%20DJs)%20an%20einem%20Samstag%20im%20September%202026%20feiern%20(5.%2C%2012.%20oder%2019.9.).%20K%C3%B6nnt%20ihr%20uns%20Verf%C3%BCgbarkeit%2C%20Buyout-Preis%20und%20Outdoor-Gr%C3%B6%C3%9Fe%20nennen%3F%20Danke!">✉ Anfrage senden</a>
+        <a class="callbtn ghost" href="https://maps.google.com/?q=Das+Werk+Spittelauer+L%C3%A4nde+12+1090+Wien" target="_blank" rel="noopener">📍 Route</a>
       </div>
     </div>
 
     <!-- PRATERSAUNA -->
-    <div class="venue">
-      <div class="vhead"><span class="rank">#2</span><span class="vname">Pratersauna</span></div>
-      <div class="vtag">Iconic Techno-Club mit Garten · Prater · 1020</div>
-      <div class="stats">
-        <div class="stat"><div class="n">500+</div><div class="ll">Kapazität (Section)</div></div>
-        <div class="stat"><div class="n">06:00</div><div class="ll">Club-Lizenz</div></div>
-        <div class="stat"><div class="n">JA</div><div class="ll">Garten + Pool + Roof</div></div>
-        <div class="stat"><div class="n">~€2–3k</div><div class="ll">Privat-Paket (gesch.)</div></div>
+    <div class="venue reveal">
+      <div class="vhero">
+        <img src="images/pratersauna_main.jpg" alt="Pratersauna">
+        <div class="overlay"></div>
+        <div class="badge"><span class="rank">#2</span><span class="pick wow">Max Wow-Faktor</span></div>
+        <div class="vtitle"><div class="vname">PRATERSAUNA</div><div class="vtag">Iconic Techno-Club mit Garten · Prater · 1020</div></div>
       </div>
-      <div class="vbody">
-        <div>
-          <div class="lbl">Adresse</div><p>Waldsteingartenstraße 135, 1020 Wien</p>
-          <div class="lbl">Kontakt</div><p>+43 664 250 2022 · <a href="mailto:info@pratersauna.tv">info@pratersauna.tv</a></p>
-          <div class="lbl">Web</div><p><a href="https://pratersauna.tv" target="_blank" rel="noopener">pratersauna.tv</a></p>
-          <div class="lbl">Catering</div><p>Eigene Gastro im Haus. Fingerfood / BBQ-Pakete für 150 Pax anfragen — Preise nicht öffentlich.</p>
-          <div class="lbl">Vibe</div><p>Wiens ikonischste Techno-Location. Multi-Floor-Club + Beachclub mit Pool + frisch renovierte Dachterrasse. Re-launch März 2026, neue Betreiber, Bookings flexibler.</p>
+      <div class="vbodywrap">
+        <div class="stats">
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div><div class="n">500+</div><div class="ll">Kapazität</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="n">06:00</div><div class="ll">Club-Lizenz</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="n">3×</div><div class="ll">Garten·Pool·Roof</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="n">2–3k</div><div class="ll">Paket gesch.</div></div>
         </div>
-        <div>
-          <div class="lbl">Stärken</div>
-          <ul class="plist pro">
-            <li>Drei Outdoor-Bereiche (Garten, Beachclub mit Pool, Roof)</li>
-            <li>September-Samstag = letzter warmer Garten-Termin der Saison</li>
-            <li>Mehrstöckig — 4 DJs können verschiedene Zonen bespielen</li>
-            <li>Wow-Faktor: kein anderes Lokal in Wien hat diesen Vibe</li>
-            <li>Neue Betreiber = verhandlungsbereiter</li>
-          </ul>
-          <div class="lbl">Schwächen / Risiken</div>
-          <ul class="plist con">
-            <li>Preise nicht publiziert — Mindestkonsumation evtl. über €4k</li>
-            <li>Neuer Betreiber = unbekannte Bilanz bei Privat-Bookings</li>
-            <li>September-Saturday-Slots gehen schnell weg</li>
-            <li>Sound-Setup auf Roof evtl. limitiert (Bauphase)</li>
-          </ul>
+        <div class="gallery">
+          <img src="images/pratersauna_main.jpg" alt="Pratersauna außen" loading="lazy">
+          <img src="images/pratersauna_2.jpg" alt="Pratersauna 2" loading="lazy">
         </div>
-      </div>
-      <div class="verdict">
-        <div class="l">Verdict</div>
-        <p><b>Maximum Wow-Faktor.</b> Wenn das Budget stimmt, schlägt nichts diese Location auf einen September-Samstag mit 4 DJs. Risiko ist der Preis — telefonisch ein klares Privat-Paket-Angebot einholen. Wenn Location-Miete alleine > €3k, zurück auf #1.</p>
+        <div class="vcols">
+          <div>
+            <div class="vlabel">Bewertung</div>
+            <div class="scorebars">
+              <div class="sb"><span class="sbl">Kosten</span><div class="sbt"><div class="sbf" data-w="60%"></div></div></div>
+              <div class="sb"><span class="sbl">Sound</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+              <div class="sb"><span class="sbl">Outdoor</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+              <div class="sb"><span class="sbl">Sperrstunde</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+              <div class="sb"><span class="sbl">Verfügbarkeit</span><div class="sbt"><div class="sbf" data-w="60%"></div></div></div>
+            </div>
+            <div class="vlabel">Vibe</div>
+            <p>Wiens ikonischste Techno-Location. Multi-Floor-Club + Beachclub mit Pool + frisch renovierte Dachterrasse. Re-launch März 2026 unter neuem Betreiber — Bookings jetzt flexibler.</p>
+            <div class="vlabel">Kontakt</div>
+            <p>+43 664 250 2022 · <a href="mailto:info@pratersauna.tv">info@pratersauna.tv</a><br>Waldsteingartenstraße 135, 1020 · <a href="https://pratersauna.tv" target="_blank" rel="noopener">pratersauna.tv</a></p>
+          </div>
+          <div>
+            <div class="vlabel">Stärken</div>
+            <ul class="plist pro">
+              <li>Drei Outdoor-Bereiche (Garten, Beachclub mit Pool, Roof)</li>
+              <li>September-Samstag = letzter warmer Garten-Termin der Saison</li>
+              <li>Mehrstöckig — 4 DJs bespielen verschiedene Zonen</li>
+              <li>Wow-Faktor: kein anderes Lokal in Wien hat diesen Vibe</li>
+            </ul>
+            <div class="vlabel">Schwächen / Risiken</div>
+            <ul class="plist con">
+              <li>Preise nicht publiziert — Mindestkonsumation evtl. über €4k</li>
+              <li>Neuer Betreiber = unbekannte Bilanz bei Privat-Bookings</li>
+              <li>September-Samstage gehen schnell weg, früh anrufen</li>
+            </ul>
+          </div>
+        </div>
+        <div class="maprow"><iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=16.4009%2C48.2108%2C16.4089%2C48.2158&layer=mapnik&marker=48.2133%2C16.4049"></iframe></div>
+        <div class="verdict">
+          <div class="l">Verdict</div>
+          <p><b>Maximum Wow-Faktor.</b> Wenn das Budget stimmt, schlägt nichts diese Location auf einen September-Samstag mit 4 DJs. Risiko ist der Preis — telefonisch ein klares Privat-Paket-Angebot einholen. Liegt die Location-Miete alleine über €3k, zurück auf #1.</p>
+        </div>
+        <a class="callbtn" href="tel:+436642502022">📞 +43 664 250 2022</a>
+        <a class="callbtn ghost" href="https://maps.google.com/?q=Pratersauna+Waldsteingartenstra%C3%9Fe+135+1020+Wien" target="_blank" rel="noopener">📍 Route</a>
       </div>
     </div>
 
     <!-- BADESCHIFF -->
-    <div class="venue">
-      <div class="vhead"><span class="rank">#3</span><span class="vname">Badeschiff Wien</span></div>
-      <div class="vtag">Schiff am Donaukanal · Trinkhalle + Sun Deck · 1010</div>
-      <div class="stats">
-        <div class="stat"><div class="n">140</div><div class="ll">Trinkhalle</div></div>
-        <div class="stat"><div class="n">04:00</div><div class="ll">Sperrstunde</div></div>
-        <div class="stat"><div class="n">JA</div><div class="ll">Sun Decks über Wasser</div></div>
-        <div class="stat"><div class="n">€2.760</div><div class="ll">Tagesmiete (publiziert)</div></div>
+    <div class="venue reveal">
+      <div class="vhero">
+        <img src="images/badeschiff_main.jpg" alt="Badeschiff Wien am Donaukanal">
+        <div class="overlay"></div>
+        <div class="badge"><span class="rank">#3</span><span class="pick safe">Sicherste Buchung</span></div>
+        <div class="vtitle"><div class="vname">BADESCHIFF</div><div class="vtag">Schiff am Donaukanal · Trinkhalle + Sun Deck · 1010</div></div>
       </div>
-      <div class="vbody">
-        <div>
-          <div class="lbl">Adresse</div><p>Donaukanal, Höhe Schwedenplatz / Urania, 1010 Wien</p>
-          <div class="lbl">Kontakt</div><p><a href="mailto:contact@badeschiff.at">contact@badeschiff.at</a> · +43 660 312 47 03</p>
-          <div class="lbl">Web</div><p><a href="https://badeschiff.at" target="_blank" rel="noopener">badeschiff.at</a></p>
-          <div class="lbl">Catering</div><p>In-House „Special Gastronomics" (Inklusionsbetrieb, fair bepreist). Fingerfood-Pakete buchbar.</p>
-          <div class="lbl">Vibe</div><p>Donaukanal-Ikone, Bauhaus-meets-Pool. Urban-Summer-Feeling, casual. Sun Decks über dem Wasser, Trinkhalle als Indoor-Floor.</p>
+      <div class="vbodywrap">
+        <div class="stats">
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div><div class="n">140</div><div class="ll">Trinkhalle</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="n">04:00</div><div class="ll">Sperrstunde</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="n">JA</div><div class="ll">Sun Decks</div></div>
+          <div class="stat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="n">€2.760</div><div class="ll">publiziert</div></div>
         </div>
-        <div>
-          <div class="lbl">Stärken</div>
-          <ul class="plist pro">
-            <li>Einzige Top-3-Option mit TRANSPARENT publiziertem Preis</li>
-            <li>Donaukanal-Setting visuell unschlagbar für Sommerparty</li>
-            <li>Sun Decks + Trinkhalle = nahtloser Indoor/Outdoor-Übergang</li>
-            <li>In-House-Catering im Inklusionsbetrieb — fair + unkompliziert</li>
-            <li>140 Pax Trinkhalle = exakt euer Maß</li>
-          </ul>
-          <div class="lbl">Schwächen / Risiken</div>
-          <ul class="plist con">
-            <li>Schließt um 04:00 hart — keine Dawn-Hours (04–06 Uhr weg)</li>
-            <li>140 Pax Cap ist exakt-fit ohne Puffer (150 = leicht voll)</li>
-            <li>Sound ist Bar-PA, nicht Club-PA — eigenes Equipment checken</li>
-            <li>Wetter-Risiko September: bei Regen schrumpft Outdoor weg</li>
-          </ul>
+        <div class="gallery">
+          <img src="images/badeschiff_main.jpg" alt="Badeschiff" loading="lazy">
         </div>
-      </div>
-      <div class="verdict">
-        <div class="l">Verdict</div>
-        <p><b>Sicherheitsnetz mit Preisgarantie.</b> Geringstes Risiko: Preis steht (€2.760 Miete + ~€1.000 Fingerfood = ~€3.760 all-in), Location verfügbar, Vibe passt. Kompromiss ist die 04:00-Sperrstunde — wenn die Party bis Sonnenaufgang laufen soll, fällt diese Option raus.</p>
+        <div class="vcols">
+          <div>
+            <div class="vlabel">Bewertung</div>
+            <div class="scorebars">
+              <div class="sb"><span class="sbl">Kosten</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+              <div class="sb"><span class="sbl">Sound</span><div class="sbt"><div class="sbf" data-w="60%"></div></div></div>
+              <div class="sb"><span class="sbl">Outdoor</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+              <div class="sb"><span class="sbl">Sperrstunde</span><div class="sbt"><div class="sbf" data-w="60%"></div></div></div>
+              <div class="sb"><span class="sbl">Verfügbarkeit</span><div class="sbt"><div class="sbf hi" data-w="100%"></div></div></div>
+            </div>
+            <div class="vlabel">Vibe</div>
+            <p>Donaukanal-Ikone, Bauhaus-meets-Pool. Urban-Summer-Feeling, casual, nicht snobby. Sun Decks über dem Wasser, Trinkhalle als Indoor-Floor — Empfang draußen, Party drinnen.</p>
+            <div class="vlabel">Kontakt</div>
+            <p><a href="mailto:contact@badeschiff.at">contact@badeschiff.at</a> · +43 660 312 47 03<br>Donaukanal, Höhe Schwedenplatz, 1010 · <a href="https://badeschiff.at" target="_blank" rel="noopener">badeschiff.at</a></p>
+          </div>
+          <div>
+            <div class="vlabel">Stärken</div>
+            <ul class="plist pro">
+              <li>Einzige Top-3-Option mit transparent publiziertem Preis</li>
+              <li>Donaukanal-Setting visuell unschlagbar für Sommerparty</li>
+              <li>Sun Decks + Trinkhalle = nahtloser Indoor/Outdoor-Übergang</li>
+              <li>In-House-Catering im Inklusionsbetrieb — fair + unkompliziert</li>
+            </ul>
+            <div class="vlabel">Schwächen / Risiken</div>
+            <ul class="plist con">
+              <li>Schließt 04:00 hart — keine Dawn-Hours (04–06 Uhr weg)</li>
+              <li>140 Pax Cap exakt-fit ohne Puffer (150 = leicht voll)</li>
+              <li>Sound ist Bar-PA, nicht Club-PA — eigenes Equipment checken</li>
+              <li>Wetter-Risiko September: bei Regen schrumpft Outdoor weg</li>
+            </ul>
+          </div>
+        </div>
+        <div class="maprow"><iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=16.3795%2C48.2092%2C16.3875%2C48.2142&layer=mapnik&marker=48.2117%2C16.3835"></iframe></div>
+        <div class="verdict">
+          <div class="l">Verdict</div>
+          <p><b>Sicherheitsnetz mit Preisgarantie.</b> Geringstes Risiko: Preis steht (€2.760 Miete + ~€1.000 Fingerfood = ~€3.760 all-in), Location verfügbar, Vibe passt. Kompromiss ist die 04:00-Sperrstunde — soll die Party bis Sonnenaufgang laufen, fällt diese Option raus.</p>
+        </div>
+        <a class="callbtn" href="mailto:contact@badeschiff.at?subject=Anfrage%20Event%20September%202026&body=Hallo%2C%20wir%20m%C3%B6chten%20die%20Trinkhalle%20%2B%20Sun%20Deck%20f%C3%BCr%20eine%20Geburtstagsparty%20(ca.%20150%20G%C3%A4ste)%20an%20einem%20Samstag%20im%20September%202026%20mieten.%20Bitte%20um%20Verf%C3%BCgbarkeit%20und%20Catering-Paket.%20Danke!">✉ Anfrage senden</a>
+        <a class="callbtn ghost" href="https://maps.google.com/?q=Badeschiff+Wien+Donaukanal+1010" target="_blank" rel="noopener">📍 Route</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BACKUP -->
-<section id="backup">
-  <div class="wrap">
-    <div class="eyebrow">Plan B</div>
-    <h2>Backup-Optionen</h2>
-    <p class="lead">Wenn die Top 3 nicht buchbar sind. Alle passen ins Budget oder kommen knapp drüber — haben aber jeweils einen klaren Schwachpunkt.</p>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>Location</th><th>Adresse</th><th>Kapazität</th><th>Stunden</th><th>Risiko</th></tr></thead>
-        <tbody>
-          <tr><td><b>FLUC / FLUC_WANNE</b><div class="sub">Beste Indoor+Outdoor-Kombi. Vermietung nur „unter Bedingungen".</div></td><td>Praterstern 5, 1020</td><td>~250 · 3 Räume + 2 Gärten</td><td>Club 04–06 Uhr</td><td>Saturday-Slot rar</td></tr>
-          <tr><td><b>Summerstage</b><div class="sub">Riesige Donaukanal-Terrasse, DJ-Pult + PA fix, In-House-Catering.</div></td><td>Rossauer Lände, 1090</td><td>300 Pavillon · 500 Terrasse</td><td>(!) ~02:00</td><td>Verfrühter Schluss</td></tr>
-          <tr><td><b>Tel Aviv Beach / NENI</b><div class="sub">Beach-Lounge-Vibe, Haya-Molcho-Küche (premium).</div></td><td>Obere Donaustr. 65, 1020</td><td>bis 250 · Sandstrand + Terrassen</td><td>Privat „Clubbing"</td><td>Catering teurer</td></tr>
-          <tr><td><b>WUK – Saal + Innenhof</b><div class="sub">Kulturzentrum, riesiges Areal. Saal wirkt bei 150 leer.</div></td><td>Währinger Str. 59, 1090</td><td>550 stehend (Saal)</td><td>Verhandelbar</td><td>Überdimensioniert</td></tr>
-          <tr><td><b>Volksgarten Pavillon</b><div class="sub">Echter Garten im Volksgarten, casual. Konsumation o. Fixmiete.</div></td><td>Burgring 1, 1010</td><td>100–200 · Garten im Park</td><td>(!) Innenstadt</td><td>Nachbar-Lärmschutz</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="callout" style="border-color:var(--red);margin-top:24px">
-      <div class="l" style="color:var(--red)">Ausgeschlossen — nicht mehr anrufen</div>
-      <p><b>Strandbar Herrmann</b> (schließt Mitternacht) · <b>Heuer am Karlsplatz</b> (Terrasse nur bis 02:00) · <b>Brick-5</b> (Lärmschutz nach 22:00, Garten max 50) · <b>Cafe Carina</b> (Schanigarten 40 Pax) · <b>Sky Bar Steffl</b> (zu klein, zu snobby) · <b>Sunken City</b> (seit 2024 zu, im Umbau) · <b>Studio67</b> (passt sonst perfekt — aber kein Outdoor).</p>
-    </div>
-  </div>
-</section>
-
-<!-- MATRIX -->
+<!-- ============ BACKUPS + MATRIX ============ -->
 <section id="matrix">
   <div class="wrap">
-    <div class="eyebrow">Vergleich</div>
-    <h2>Vergleichsmatrix</h2>
-    <p class="lead">Alle relevanten Optionen nebeneinander. Score 1–5 pro Kriterium · 5 = perfekt, 1 = K.O.-Kriterium.</p>
-    <div class="tablewrap">
+    <div class="sec-eyebrow reveal">Vergleich &amp; Plan B</div>
+    <h2 class="sec-title reveal">Matrix &amp; Backups</h2>
+    <p class="lead reveal">Alle relevanten Optionen nebeneinander. Score 1–5 pro Kriterium · 5 = perfekt, 1 = K.O.-Kriterium.</p>
+
+    <div class="tablewrap reveal">
       <table>
         <thead><tr><th>Location</th><th>Kosten</th><th>Sound</th><th>Outdoor</th><th>Sperrstunde</th><th>Nicht-snobby</th><th>Verfügb.</th><th>Gesamt</th></tr></thead>
         <tbody>
-          <tr class="top3"><td>1. WERK</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s3">3</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s4">4</td><td class="sc"><span class="stars">★★★★★</span></td></tr>
-          <tr class="top3"><td>2. Pratersauna</td><td class="sc s3">3</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s3">3</td><td class="sc"><span class="stars">★★★★<span class="o">★</span></span></td></tr>
-          <tr class="top3"><td>3. Badeschiff</td><td class="sc s5">5</td><td class="sc s3">3</td><td class="sc s5">5</td><td class="sc s3">3</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc"><span class="stars">★★★★<span class="o">★</span></span></td></tr>
-          <tr><td>FLUC</td><td class="sc s4">4</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s5">5</td><td class="sc s2">2</td><td class="sc"><span class="stars">★★★★<span class="o">★</span></span></td></tr>
-          <tr><td>Summerstage</td><td class="sc s3">3</td><td class="sc s4">4</td><td class="sc s5">5</td><td class="sc s2">2</td><td class="sc s4">4</td><td class="sc s4">4</td><td class="sc"><span class="stars">★★★<span class="o">★★</span></span></td></tr>
-          <tr><td>Tel Aviv Beach</td><td class="sc s2">2</td><td class="sc s3">3</td><td class="sc s5">5</td><td class="sc s3">3</td><td class="sc s3">3</td><td class="sc s4">4</td><td class="sc"><span class="stars">★★★<span class="o">★★</span></span></td></tr>
-          <tr><td>WUK</td><td class="sc s4">4</td><td class="sc s3">3</td><td class="sc s4">4</td><td class="sc s3">3</td><td class="sc s5">5</td><td class="sc s4">4</td><td class="sc"><span class="stars">★★★<span class="o">★★</span></span></td></tr>
-          <tr><td>Volksgarten Pavillon</td><td class="sc s3">3</td><td class="sc s3">3</td><td class="sc s4">4</td><td class="sc s2">2</td><td class="sc s4">4</td><td class="sc s4">4</td><td class="sc"><span class="stars">★★★<span class="o">★★</span></span></td></tr>
+          <tr class="matrow top"><td>1. WERK</td><td class="heat h5">5</td><td class="heat h5">5</td><td class="heat h3">3</td><td class="heat h5">5</td><td class="heat h5">5</td><td class="heat h4">4</td><td><span class="stars">★★★★★</span></td></tr>
+          <tr class="matrow top"><td>2. Pratersauna</td><td class="heat h3">3</td><td class="heat h5">5</td><td class="heat h5">5</td><td class="heat h5">5</td><td class="heat h5">5</td><td class="heat h3">3</td><td><span class="stars">★★★★<span class="o">★</span></span></td></tr>
+          <tr class="matrow top"><td>3. Badeschiff</td><td class="heat h5">5</td><td class="heat h3">3</td><td class="heat h5">5</td><td class="heat h3">3</td><td class="heat h5">5</td><td class="heat h5">5</td><td><span class="stars">★★★★<span class="o">★</span></span></td></tr>
+          <tr class="matrow"><td>FLUC</td><td class="heat h4">4</td><td class="heat h5">5</td><td class="heat h5">5</td><td class="heat h5">5</td><td class="heat h5">5</td><td class="heat h2">2</td><td><span class="stars">★★★★<span class="o">★</span></span></td></tr>
+          <tr class="matrow"><td>Summerstage</td><td class="heat h3">3</td><td class="heat h4">4</td><td class="heat h5">5</td><td class="heat h2">2</td><td class="heat h4">4</td><td class="heat h4">4</td><td><span class="stars">★★★<span class="o">★★</span></span></td></tr>
+          <tr class="matrow"><td>Tel Aviv Beach</td><td class="heat h2">2</td><td class="heat h3">3</td><td class="heat h5">5</td><td class="heat h3">3</td><td class="heat h3">3</td><td class="heat h4">4</td><td><span class="stars">★★★<span class="o">★★</span></span></td></tr>
+          <tr class="matrow"><td>WUK</td><td class="heat h4">4</td><td class="heat h3">3</td><td class="heat h4">4</td><td class="heat h3">3</td><td class="heat h5">5</td><td class="heat h4">4</td><td><span class="stars">★★★<span class="o">★★</span></span></td></tr>
+          <tr class="matrow"><td>Volksgarten Pavillon</td><td class="heat h3">3</td><td class="heat h3">3</td><td class="heat h4">4</td><td class="heat h2">2</td><td class="heat h4">4</td><td class="heat h4">4</td><td><span class="stars">★★★<span class="o">★★</span></span></td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3 style="font-size:1.6rem;margin:34px 0 14px;color:var(--gold)">Datum-Empfehlung</h3>
-    <div class="dates">
-      <div class="drow"><span class="d">Sa 5. Sept. 2026</span><span class="why">Saisonende noch warm · Garten/Terrasse sicher offen · Locations am wenigsten ausgebucht</span><span class="badge rec">Empfohlen</span></div>
-      <div class="drow"><span class="d">Sa 12. Sept. 2026</span><span class="why">Mittelweg · Wetter meist noch ok · Locations beginnen sich zu füllen</span><span class="badge ok">OK</span></div>
-      <div class="drow"><span class="d">Sa 19. Sept. 2026</span><span class="why">Wetter unsicher · Outdoor-Locations evtl. bereits Saisonende geschlossen</span><span class="badge risk">Risiko</span></div>
+    <div class="excl reveal">
+      <div class="l">Ausgeschlossen — nicht mehr anrufen</div>
+      <p><b>Strandbar Herrmann</b> (schließt Mitternacht) · <b>Heuer am Karlsplatz</b> (Terrasse nur bis 02:00) · <b>Brick-5</b> (Lärmschutz nach 22:00, Garten max 50) · <b>Cafe Carina</b> (Schanigarten 40 Pax) · <b>Sky Bar Steffl</b> (zu klein, zu snobby) · <b>Sunken City</b> (seit 2024 zu, im Umbau) · <b>Studio67</b> (passt sonst perfekt — aber kein Outdoor).</p>
+    </div>
+
+    <h3 style="font-size:1.7rem;color:var(--gold);margin:40px 0 8px;letter-spacing:.6px" class="reveal">Datum-Empfehlung</h3>
+    <div class="dates reveal">
+      <div class="drow rec"><span class="d">Sa 5. Sept. 2026</span><span class="why">Saisonende noch warm · Garten/Terrasse sicher offen · Locations am wenigsten ausgebucht</span><span class="pill rec">Empfohlen</span></div>
+      <div class="drow"><span class="d">Sa 12. Sept. 2026</span><span class="why">Mittelweg · Wetter meist noch ok · Locations beginnen sich zu füllen</span><span class="pill ok">OK</span></div>
+      <div class="drow"><span class="d">Sa 19. Sept. 2026</span><span class="why">Wetter unsicher · Outdoor-Locations evtl. bereits Saisonende geschlossen</span><span class="pill risk">Risiko</span></div>
     </div>
   </div>
 </section>
 
-<!-- ACTION -->
+<!-- ============ ACTION ============ -->
 <section id="action">
   <div class="wrap">
-    <div class="eyebrow">Los geht's</div>
-    <h2>Action Plan</h2>
-    <p class="lead">In dieser Reihenfolge anrufen / emailen. Erste Zusage = nehmen. Locations dieser Größe brauchen <b>3–4 Monate Vorlauf</b> für einen September-Samstag — spätestens <b>Anfang Juni</b> sollte gebucht sein.</p>
-    <div class="tablewrap">
+    <div class="sec-eyebrow reveal">Los geht's</div>
+    <h2 class="sec-title reveal">Action Plan</h2>
+    <p class="lead reveal">Locations dieser Größe brauchen <b>3–4 Monate Vorlauf</b> für einen September-Samstag — spätestens <b>Anfang Juni</b> sollte gebucht sein. Erste Zusage = nehmen.</p>
+
+    <div class="tablewrap reveal" style="margin-bottom:32px">
       <table>
         <thead><tr><th>#</th><th>Location</th><th>Kontakt</th><th>Fragen / Notiz</th></tr></thead>
         <tbody>
-          <tr><td class="sc" style="color:var(--gold)">1</td><td><b>WERK</b><div class="sub">Spittelauer Lände 12, 1090</div></td><td>booking@daswerk.org</td><td>Email mit allen 3 Datumsoptionen + 150 Pax + 4 DJs + Outdoor-Größe + Saturday-Buyout-Preis</td></tr>
-          <tr><td class="sc" style="color:var(--gold)">2</td><td><b>Pratersauna</b><div class="sub">Waldsteingartenstr. 135, 1020</div></td><td>+43 664 250 2022 · info@pratersauna.tv</td><td>Anrufen — neue Betreiber, flexibel. Garten + 1 Floor als Privat-Paket anfragen</td></tr>
-          <tr><td class="sc" style="color:var(--gold)">3</td><td><b>Badeschiff Wien</b><div class="sub">Donaukanal, Höhe Schwedenplatz</div></td><td>contact@badeschiff.at</td><td>Trinkhalle (€2.760 publiziert) + Sun Deck. Catering-Paket anfragen. Sicherste Buchung.</td></tr>
-          <tr><td class="sc" style="color:var(--gold)">4</td><td><b>FLUC</b><div class="sub">Praterstern 5, 1020</div></td><td>via Formular flucc.at</td><td>Vermietung selten — direkt Datum anfragen. Beste Chance auf 5.9.</td></tr>
-          <tr><td class="sc" style="color:var(--gold)">5</td><td><b>Summerstage</b><div class="sub">Rossauer Lände, 1090</div></td><td>+43 1 319 66 44 · office@summerstage.at</td><td>NUR wenn Top 4 nicht klappt. Erste Frage: Sperrstunde über 02:00 möglich?</td></tr>
+          <tr><td style="color:var(--gold);font-family:'Bebas Neue';font-size:1.3rem">1</td><td><b>WERK</b><div class="subt">Spittelauer Lände 12, 1090</div></td><td>booking@daswerk.org</td><td>Email mit allen 3 Datumsoptionen + 150 Pax + 4 DJs + Outdoor-Größe + Saturday-Buyout-Preis</td></tr>
+          <tr><td style="color:var(--gold);font-family:'Bebas Neue';font-size:1.3rem">2</td><td><b>Pratersauna</b><div class="subt">Waldsteingartenstr. 135, 1020</div></td><td>+43 664 250 2022 · info@pratersauna.tv</td><td>Anrufen — neue Betreiber, flexibel. Garten + 1 Floor als Privat-Paket anfragen</td></tr>
+          <tr><td style="color:var(--gold);font-family:'Bebas Neue';font-size:1.3rem">3</td><td><b>Badeschiff Wien</b><div class="subt">Donaukanal, Höhe Schwedenplatz</div></td><td>contact@badeschiff.at</td><td>Trinkhalle (€2.760 publiziert) + Sun Deck. Catering-Paket anfragen. Sicherste Buchung.</td></tr>
+          <tr><td style="color:var(--gold);font-family:'Bebas Neue';font-size:1.3rem">4</td><td><b>FLUC</b><div class="subt">Praterstern 5, 1020</div></td><td>via Formular flucc.at</td><td>Vermietung selten — direkt Datum anfragen. Beste Chance auf 5.9.</td></tr>
+          <tr><td style="color:var(--gold);font-family:'Bebas Neue';font-size:1.3rem">5</td><td><b>Summerstage</b><div class="subt">Rossauer Lände, 1090</div></td><td>+43 1 319 66 44 · office@summerstage.at</td><td>NUR wenn Top 4 nicht klappt. Erste Frage: Sperrstunde über 02:00 möglich?</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3 style="font-size:1.4rem;margin:30px 0 6px;color:var(--gold)">Pflicht-Fragen bei jedem Anruf</h3>
-    <ul class="qlist">
-      <li><b>1. Sperrstunde</b> für Privat-Event am Samstag — bis wann darf gespielt werden?</li>
-      <li><b>2. Outdoor-Fläche</b> in der Miete inkludiert? Größe? Lärmschutz nach 22:00?</li>
-      <li><b>3. Gesamtkosten</b> für 150 Pax — Fixmiete oder Mindestkonsumation? Wann zahlbar?</li>
-      <li><b>4. DJ-Setup</b> vorhanden (Pioneer CDJ/Mixer) oder mitbringen? Soundcheck-Zeit?</li>
-      <li><b>5. Catering</b> — Haus-Optionen vs. externes Catering erlaubt? Korkgeld?</li>
-      <li><b>6. Stornobedingungen</b> — bis wann kostenfrei?</li>
-    </ul>
-
-    <div class="callout" style="margin-top:28px">
-      <div class="l">Nächste Schritte</div>
-      <div class="steps">
-        <div class="step"><div class="when">Heute / Morgen</div><div class="what">Email an WERK + Pratersauna parallel. Antworten in 24–72 h erwartbar.</div></div>
-        <div class="step"><div class="when">Diese Woche</div><div class="what">Bei Zusage sofort Datum reservieren (Anzahlung üblich 30 %). Backup-Anbieter informieren dass Buchung läuft.</div></div>
-        <div class="step"><div class="when">Bis Ende Juni</div><div class="what">Catering-Quote von 2 externen Anbietern einholen (z.B. Schwarz Hirsch, Mio Tio Catering, Trofana), falls Location ohne Catering.</div></div>
-        <div class="step"><div class="when">August</div><div class="what">Soundcheck-Termin fixieren, Setlist der 4 DJs abstimmen, Einladungen raus.</div></div>
+    <div class="cols2 reveal">
+      <div>
+        <h3 style="font-size:1.5rem;color:var(--gold);margin-bottom:12px;letter-spacing:.5px">Pflicht-Fragen bei jedem Anruf</h3>
+        <ul class="qlist">
+          <li><b>1. Sperrstunde</b> für Privat-Event am Samstag — bis wann darf gespielt werden?</li>
+          <li><b>2. Outdoor-Fläche</b> in der Miete inkludiert? Größe? Lärmschutz nach 22:00?</li>
+          <li><b>3. Gesamtkosten</b> für 150 Pax — Fixmiete oder Mindestkonsumation?</li>
+          <li><b>4. DJ-Setup</b> vorhanden (Pioneer CDJ/Mixer) oder mitbringen? Soundcheck-Zeit?</li>
+          <li><b>5. Catering</b> — Haus-Optionen vs. externes Catering erlaubt? Korkgeld?</li>
+          <li><b>6. Stornobedingungen</b> — bis wann kostenfrei?</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:1.5rem;color:var(--gold);margin-bottom:16px;letter-spacing:.5px">Zeitplan</h3>
+        <div class="timeline">
+          <div class="tl"><div class="when">Heute / Morgen</div><div class="what">Email an <b>WERK + Pratersauna</b> parallel. Antworten in 24–72 h erwartbar.</div></div>
+          <div class="tl"><div class="when">Diese Woche</div><div class="what">Bei Zusage sofort Datum reservieren (Anzahlung üblich 30 %). Backups informieren, dass Buchung läuft.</div></div>
+          <div class="tl"><div class="when">Bis Ende Juni</div><div class="what">Catering-Quote von 2 externen Anbietern (z.B. Schwarz Hirsch, Mio Tio, Trofana), falls Location ohne Catering.</div></div>
+          <div class="tl"><div class="when">August</div><div class="what">Soundcheck-Termin fixieren, Setlist der 4 DJs abstimmen, Einladungen raus.</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>40er-Geburtstag · 4×40 · Wien · September 2026 — Entscheidungsvorlage</p>
-  <p style="margin-top:6px">Erstellt von <a href="https://github.com/bloppbot">BloppBOT</a> · Recherche eigenständig, alle Preise auf Anfrage zu bestätigen</p>
-  <p class="disclaim">Privates Planungsdokument. Alle Kontaktdaten sind öffentliche Geschäftsadressen der jeweiligen Locations.</p>
+  <div class="wrap">
+    <div class="fbrand">PARTY IN WIEN · SEPT '26</div>
+    <p>40er-Geburtstag · 4×40 · ~150 Gäste — Entscheidungsvorlage</p>
+    <p style="margin-top:6px">Erstellt von <a href="https://github.com/bloppbot">BloppBOT</a> · Recherche eigenständig, alle Preise auf Anfrage zu bestätigen</p>
+    <p class="credits">
+      Bildnachweis: WERK-Fotos © <a href="https://daswerk.org" target="_blank" rel="noopener">daswerk.org</a>.
+      Pratersauna: „Wien 02 Pratersauna" (CC0) via Wikimedia Commons.
+      Badeschiff: „Badeschiff-Wien" (CC BY-SA 3.0) via <a href="https://commons.wikimedia.org/wiki/File:Badeschiff-Wien_DSC1227w.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.
+      Karten: © OpenStreetMap-Mitwirkende. Privates Planungsdokument — alle Kontaktdaten sind öffentliche Geschäftsadressen.
+    </p>
+  </div>
 </footer>
 
+<div class="lb" id="lb"><img src="" alt=""></div>
+
+<script>
+// ---- reveal on scroll ----
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ---- animate bars when visible ----
+const barIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ const w=e.target.dataset.w; requestAnimationFrame(()=>{e.target.style.width=w;}); barIO.unobserve(e.target);} });
+},{threshold:.4});
+document.querySelectorAll('.fill,.sbf').forEach(el=>{ el.style.width='0'; barIO.observe(el); });
+
+// ---- scrollspy ----
+const navmap = {};
+document.querySelectorAll('.navlinks a').forEach(a=>navmap[a.getAttribute('href').slice(1)]=a);
+const spy = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ Object.values(navmap).forEach(a=>a.classList.remove('active')); const a=navmap[e.target.id]; if(a)a.classList.add('active'); } });
+},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
+
+// ---- decision engine ----
+const answers = {hours:null, budget:null, vibe:null};
+const reasons = {
+  werk: 'Bester Allrounder: Lizenz bis 06:00, Club-Sound, im Budget. Sichere Wahl, wenn ihr euch nicht festlegen wollt.',
+  praters: 'Maximaler Wow-Faktor: Garten, Pool und Roof auf mehreren Floors. Lohnt sich, wenn Budget flexibel ist und der Effekt zählt.',
+  bade: 'Sicherste Buchung: fixer Preis (€2.760), verfügbar, Donaukanal-Vibe. Ideal, wenn 04:00 reicht und ihr planbar bleiben wollt.'
+};
+function score(){
+  let s = {werk:1, praters:0, bade:0}; // WERK base tiebreak
+  const {hours,budget,vibe} = answers;
+  if(hours==='must06'){ s.werk+=2; s.praters+=2; s.bade-=3; }
+  if(hours==='ok04'){ s.bade+=2; s.werk+=1; s.praters+=1; }
+  if(budget==='hard'){ s.werk+=2; s.bade+=1; s.praters-=1; }
+  if(budget==='flex'){ s.praters+=2; s.werk+=1; }
+  if(vibe==='wow'){ s.praters+=2; s.bade+=1; }
+  if(vibe==='safe'){ s.bade+=2; s.werk+=1; }
+  return s;
+}
+const names = {werk:'WERK', praters:'PRATERSAUNA', bade:'BADESCHIFF'};
+function render(){
+  const s = score();
+  const min = Math.min(...Object.values(s));
+  const shifted = {};
+  for(const k in s){ shifted[k]=Math.max(0,s[k]-min)+1; }
+  const total = Object.values(shifted).reduce((a,b)=>a+b,0);
+  let win = Object.keys(s).reduce((a,b)=> s[b]>s[a]?b:a, 'werk');
+  const answered = Object.values(answers).every(Boolean);
+  document.getElementById('rwinner').textContent = names[win];
+  if(answered) document.getElementById('rwhy').textContent = reasons[win];
+  document.querySelectorAll('.rrank').forEach(r=>{
+    const k=r.dataset.k;
+    const pct = Math.round(shifted[k]/total*100);
+    r.querySelector('.bar').style.width = pct+'%';
+    r.querySelector('.pct').textContent = pct+'%';
+    r.classList.toggle('top', k===win);
+  });
+}
+document.querySelectorAll('.q').forEach(q=>{
+  const key=q.dataset.q;
+  q.querySelectorAll('.opt').forEach(o=>{
+    o.addEventListener('click',()=>{
+      q.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));
+      o.classList.add('sel');
+      answers[key]=o.dataset.v;
+      render();
+    });
+  });
+});
+render();
+
+// ---- lightbox ----
+const lb=document.getElementById('lb'), lbimg=lb.querySelector('img');
+document.querySelectorAll('.gallery img').forEach(img=>{
+  img.addEventListener('click',()=>{ if(img.style.visibility==='hidden')return; lbimg.src=img.src; lb.classList.add('on'); });
+});
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+</script>
 </body>
 </html>
